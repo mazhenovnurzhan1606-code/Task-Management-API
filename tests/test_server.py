@@ -42,6 +42,12 @@ class TestServer(unittest.TestCase):
         data = json.loads(response.read().decode())
         self.assertEqual(len(data), 3)
 
+    def test_not_found(self):
+        try:
+            urlopen(f"http://127.0.0.1:{self.port}/unknown")
+            self.fail("Expected 404")
+        except Exception as e:
+            self.assertIn("HTTP Error 404", str(e))
 
 if __name__ == "__main__":
     unittest.main()
