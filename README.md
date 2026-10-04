@@ -62,3 +62,10 @@ Port
 The default port is 8080.
 
 The application binds to 0.0.0.0 and can use a different port through the PORT environment variable.
+## Example
+
+Use curl to check the API:
+
+    curl http://localhost:8080/
+    curl http://localhost:8080/healthz
+    curl http://localhost:8080/tasks
