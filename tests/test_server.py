@@ -34,6 +34,7 @@ class TestServer(unittest.TestCase):
 
         body = response.read().decode()
         self.assertTrue(len(body) > 0)
+        self.assertEqual(body, "OK")
 
     def test_tasks(self):
         response = urlopen(f"http://127.0.0.1:{self.port}/tasks")
@@ -48,6 +49,7 @@ class TestServer(unittest.TestCase):
             self.fail("Expected 404")
         except Exception as e:
             self.assertIn("HTTP Error 404", str(e))
+
 
 if __name__ == "__main__":
     unittest.main()
