@@ -34,7 +34,7 @@ class TestServer(unittest.TestCase):
 
         body = response.read().decode()
         self.assertTrue(len(body) > 0)
-        self.assertEqual(body, "BROKEN")
+        self.assertEqual(body, "OK")
 
     def test_tasks(self):
         response = urlopen(f"http://127.0.0.1:{self.port}/tasks")
