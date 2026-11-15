@@ -8,6 +8,7 @@ tasks = [
     {"id": 3, "title": "Study Docker", "completed": False}
 ]
 
+greeting = os.environ.get("GREETING", "Hello")
 
 class Handler(BaseHTTPRequestHandler):
 
@@ -16,7 +17,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Task Management API")
+            self.wfile.write(f"{greeting} - Task Management API".encode())
 
         elif self.path == "/healthz":
             self.send_response(200)
